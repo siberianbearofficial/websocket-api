@@ -8,7 +8,7 @@ from schemas.message import MessageCreate
 router = APIRouter(prefix='/messages', tags=['messages'])
 
 
-@router.get('/')
+@router.get('')
 async def get_messages_handler(
         message_service: MessageServiceDep
 ):
@@ -20,7 +20,7 @@ async def get_messages_handler(
     }
 
 
-@router.get('/{uuid}')
+@router.get('{uuid}')
 async def get_message_handler(
         message_service: MessageServiceDep,
         uuid: UUID
@@ -35,7 +35,7 @@ async def get_message_handler(
     }
 
 
-@router.post('/')
+@router.post('')
 async def post_messages_handler(
         message_service: MessageServiceDep,
         message: MessageCreate,

@@ -1,6 +1,7 @@
 import socketio
 
 from fastapi import FastAPI
+from starlette.middleware.cors import CORSMiddleware
 
 from routers.user import router as user_router
 from routers.message import router as message_router

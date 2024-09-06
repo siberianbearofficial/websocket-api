@@ -3,14 +3,14 @@ from typing import Annotated
 from fastapi import Depends, HTTPException
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 
-from config import USERS, MESSAGE_FILENAME
+from config import USERS
 from repositories.message import MessageRepository
 from schemas.user import UserRead
 from services.message import MessageService
 
 security = HTTPBasic()
 
-message_repository = MessageRepository(MESSAGE_FILENAME)
+message_repository = MessageRepository()
 message_service = MessageService(message_repository)
 
 

@@ -9,7 +9,7 @@ from socket_manager import sio
 router = APIRouter(prefix='/users', tags=['users'])
 
 
-@router.get('/')
+@router.get('')
 async def get_users():
     return {
         'data': list(map(lambda user_dict: UserRead(**user_dict), USERS)),
@@ -17,7 +17,7 @@ async def get_users():
     }
 
 
-@router.get('/{uuid}')
+@router.get('{uuid}')
 async def get_user(uuid: UUID):
     users = list(filter(lambda user: user.get('uuid') == str(uuid), USERS))
     if not users:
@@ -29,7 +29,7 @@ async def get_user(uuid: UUID):
     }
 
 
-@router.post('/')
+@router.post('')
 async def post_users(user: UserCreate):
     user_uuid = uuid4()
     USERS.append({
